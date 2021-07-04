@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6855C4F97F78B38BC424D020 /* Pods_NCMBFSCalendarSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C127BA5735504135963F6D03 /* Pods_NCMBFSCalendarSample.framework */; };
 		D1DAFAC42692010F0056A5EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAFAC32692010F0056A5EE /* AppDelegate.swift */; };
 		D1DAFAC62692010F0056A5EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAFAC52692010F0056A5EE /* SceneDelegate.swift */; };
 		D1DAFAC82692010F0056A5EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DAFAC72692010F0056A5EE /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63EAF1E1F45B74C4637BA4CF /* Pods-NCMBFSCalendarSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCMBFSCalendarSample.release.xcconfig"; path = "Target Support Files/Pods-NCMBFSCalendarSample/Pods-NCMBFSCalendarSample.release.xcconfig"; sourceTree = "<group>"; };
+		97E33BFFAFF7D507F8CAE076 /* Pods-NCMBFSCalendarSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NCMBFSCalendarSample.debug.xcconfig"; path = "Target Support Files/Pods-NCMBFSCalendarSample/Pods-NCMBFSCalendarSample.debug.xcconfig"; sourceTree = "<group>"; };
+		C127BA5735504135963F6D03 /* Pods_NCMBFSCalendarSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NCMBFSCalendarSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DAFAC02692010F0056A5EE /* NCMBFSCalendarSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NCMBFSCalendarSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1DAFAC32692010F0056A5EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1DAFAC52692010F0056A5EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6855C4F97F78B38BC424D020 /* Pods_NCMBFSCalendarSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A9AEFC488F60D800FC93F64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C127BA5735504135963F6D03 /* Pods_NCMBFSCalendarSample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5000C7968C28DFCB589FC53B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97E33BFFAFF7D507F8CAE076 /* Pods-NCMBFSCalendarSample.debug.xcconfig */,
+				63EAF1E1F45B74C4637BA4CF /* Pods-NCMBFSCalendarSample.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D1DAFAB72692010F0056A5EE = {
 			isa = PBXGroup;
 			children = (
 				D1DAFAC22692010F0056A5EE /* NCMBFSCalendarSample */,
 				D1DAFAC12692010F0056A5EE /* Products */,
+				5000C7968C28DFCB589FC53B /* Pods */,
+				4A9AEFC488F60D800FC93F64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1DAFAD4269201110056A5EE /* Build configuration list for PBXNativeTarget "NCMBFSCalendarSample" */;
 			buildPhases = (
+				CD17BD657EA0241738C6D212 /* [CP] Check Pods Manifest.lock */,
 				D1DAFABC2692010F0056A5EE /* Sources */,
 				D1DAFABD2692010F0056A5EE /* Frameworks */,
 				D1DAFABE2692010F0056A5EE /* Resources */,
+				36C63B15F5B0A258E56CAFE4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36C63B15F5B0A258E56CAFE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NCMBFSCalendarSample/Pods-NCMBFSCalendarSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NCMBFSCalendarSample/Pods-NCMBFSCalendarSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NCMBFSCalendarSample/Pods-NCMBFSCalendarSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD17BD657EA0241738C6D212 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NCMBFSCalendarSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1DAFABC2692010F0056A5EE /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		D1DAFAD5269201110056A5EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97E33BFFAFF7D507F8CAE076 /* Pods-NCMBFSCalendarSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +371,7 @@
 		};
 		D1DAFAD6269201110056A5EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63EAF1E1F45B74C4637BA4CF /* Pods-NCMBFSCalendarSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

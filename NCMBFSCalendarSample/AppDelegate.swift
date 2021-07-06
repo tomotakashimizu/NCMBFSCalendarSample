@@ -17,6 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let clientkey = "cf537c02c5aecd6a8a6b817003448bdf94a8441ff677b2bc6688f7769040611d"
         NCMB.setApplicationKey(applicationKey, clientKey: clientkey)
         
+        // userdefaultsを用いて，匿名ログイン時のuserIdを保存.また全てのユーザーに対してデータのアクセス権を与えるACLを設定
+        if UserDefaults.standard.object(forKey: "userId") == nil {
+            NCMBUser.enableAutomaticUser()
+            NCMBUser.automaticCurrentUser { (user, error) in
+                if error != nil {
+                    print(error)
+                } else {
+                    UserDefaults.standard.set(user?.objectId, forKey: "userId")
+                    let groupACL = NCMBACL()
+                    groupACL.setPublicReadAccess(true)
+                    user!.acl = groupACL
+                    user!.save(nil)
+                }
+            }
+        }
+        
         return true
     }
 

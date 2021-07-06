@@ -80,13 +80,11 @@
 		D1DAFAC22692010F0056A5EE /* NCMBFSCalendarSample */ = {
 			isa = PBXGroup;
 			children = (
+				D1DAFAC32692010F0056A5EE /* AppDelegate.swift */,
+				D1DAFAC52692010F0056A5EE /* SceneDelegate.swift */,
 				D1DAFAD9269472AA0056A5EE /* Model */,
 				D1DAFAD82694729A0056A5EE /* View */,
 				D1DAFAD72694726A0056A5EE /* Controller */,
-				D1DAFAC32692010F0056A5EE /* AppDelegate.swift */,
-				D1DAFAC52692010F0056A5EE /* SceneDelegate.swift */,
-				D1DAFAC72692010F0056A5EE /* ViewController.swift */,
-				D1DAFAC92692010F0056A5EE /* Main.storyboard */,
 				D1DAFACC269201110056A5EE /* Assets.xcassets */,
 				D1DAFACE269201110056A5EE /* LaunchScreen.storyboard */,
 				D1DAFAD1269201110056A5EE /* Info.plist */,
@@ -97,6 +95,7 @@
 		D1DAFAD72694726A0056A5EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D1DAFAC72692010F0056A5EE /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,6 +103,7 @@
 		D1DAFAD82694729A0056A5EE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1DAFAC92692010F0056A5EE /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";

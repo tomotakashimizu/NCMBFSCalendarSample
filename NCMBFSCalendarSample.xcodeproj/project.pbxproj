@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,7 +56,6 @@
 				97E33BFFAFF7D507F8CAE076 /* Pods-NCMBFSCalendarSample.debug.xcconfig */,
 				63EAF1E1F45B74C4637BA4CF /* Pods-NCMBFSCalendarSample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +80,9 @@
 		D1DAFAC22692010F0056A5EE /* NCMBFSCalendarSample */ = {
 			isa = PBXGroup;
 			children = (
+				D1DAFAD9269472AA0056A5EE /* Model */,
+				D1DAFAD82694729A0056A5EE /* View */,
+				D1DAFAD72694726A0056A5EE /* Controller */,
 				D1DAFAC32692010F0056A5EE /* AppDelegate.swift */,
 				D1DAFAC52692010F0056A5EE /* SceneDelegate.swift */,
 				D1DAFAC72692010F0056A5EE /* ViewController.swift */,
@@ -90,6 +92,27 @@
 				D1DAFAD1269201110056A5EE /* Info.plist */,
 			);
 			path = NCMBFSCalendarSample;
+			sourceTree = "<group>";
+		};
+		D1DAFAD72694726A0056A5EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D1DAFAD82694729A0056A5EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1DAFAD9269472AA0056A5EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

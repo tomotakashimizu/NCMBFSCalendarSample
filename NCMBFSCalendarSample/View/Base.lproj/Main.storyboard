@@ -11,7 +11,7 @@
         <!--日付-->
         <scene sceneID="7jp-d4-YGl">
             <objects>
-                <viewController storyboardIdentifier="calendarStoryboard" id="c7d-dO-kNr" customClass="ViewController" customModule="CalendarSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="calendarStoryboard" id="c7d-dO-kNr" customClass="ViewController" customModule="NCMBFSCalendarSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3x9-71-c2I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
         <!--予定追加-->
         <scene sceneID="kAy-9t-fEQ">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="e8F-Kq-0mz" customClass="AddScheduleViewController" customModule="CalendarSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="e8F-Kq-0mz" customClass="AddScheduleViewController" customModule="NCMBFSCalendarSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tvN-J1-vyA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

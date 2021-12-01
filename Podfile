@@ -8,6 +8,6 @@ target 'NCMBFSCalendarSample' do
   # Pods for NCMBFSCalendarSample
 
 pod 'FSCalendar'
-pod 'NCMB', :git => 'https://github.com/NIFTYCloud-mbaas/ncmb_ios.git', :branch => 'develop'
+pod 'NCMB', :git => 'https://github.com/NIFCLOUD-mbaas/ncmb_swift.git'
 
 end

@@ -125,9 +125,12 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
 extension ViewController{
     
     func loadData(){
+        
+        guard let userId = UserDefaults.standard.object(forKey: "userId") else { return }
+        
         //NCMBから値を取得
         var query = NCMBQuery.getQuery(className: "Schedules")
-        query.where(field: "userId", equalTo: UserDefaults.standard.object(forKey: "userId")!)
+        query.where(field: "userId", equalTo: userId)
         query.findInBackground { result in
             switch result {
             case let .success(array):

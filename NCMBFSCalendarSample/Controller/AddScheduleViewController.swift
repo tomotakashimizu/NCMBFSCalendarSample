@@ -28,38 +28,48 @@ class AddScheduleViewController: UIViewController {
     @IBAction func saveSchedule(){
         //スケジュールを記入
         //スケジュールが既にあれば追加/なければ新規作成するロジックを記載
-        let query = NCMBQuery(className: "Schedules")
-        query?.whereKey("userId", equalTo: UserDefaults.standard.object(forKey: "userId"))
-        query?.whereKey("scheduledDate", equalTo: self.dateTextField.text!)
-        query?.findObjectsInBackground({ (results, error) in
-            if error != nil {
-                print(error)
-            } else if results?.isEmpty == false {
-                //もし既に何か予定があれば，スケジュールに予定を追加
-                let eventObject = results![0] as! NCMBObject
-                var events = eventObject.object(forKey: "events") as! [String]
-                events.append(self.eventTextField.text!)
-                eventObject.setObject(events, forKey: "events")
-                eventObject.saveInBackground { (error) in
-                    if error != nil {
-                        print(error)
+        var query = NCMBQuery.getQuery(className: "Schedules")
+        query.where(field: "userId", equalTo: UserDefaults.standard.object(forKey: "userId")!)
+        query.where(field: "scheduledDate", equalTo: self.dateTextField.text!)
+        query.findInBackground { result in
+            switch result {
+            case let .success(array):
+                print("取得に成功しました 件数: \(array.count)")
+                if array.isEmpty == false {
+                    //もし既に何か予定があれば，スケジュールに予定を追加
+                    let eventObject = array[0]
+                    var events: [String]? = eventObject["events"]
+                    events?.append(self.eventTextField.text!)
+                    eventObject["events"] = events
+                    eventObject.saveInBackground { result in
+                        switch result {
+                        case .success:
+                            print("保存に成功しました")
+                        case let .failure(error):
+                            print("保存に失敗しました: \(error)")
+                        }
+                    }
+                } else {
+                    //なければ予定を作成
+                    let eventObject = NCMBObject(className: "Schedules")
+                    
+                    // 配列で保存することで検索コストを減らせる
+                    eventObject["events"] = [self.eventTextField.text!]
+                    eventObject["scheduledDate"] = self.dateTextField.text!
+                    eventObject["userId"] = UserDefaults.standard.object(forKey: "userId")
+                    eventObject.saveInBackground { result in
+                        switch result {
+                        case .success:
+                            print("保存に成功しました")
+                        case let .failure(error):
+                            print("保存に失敗しました: \(error)")
+                        }
                     }
                 }
-            } else {
-                //なければ予定を作成
-                let eventObject = NCMBObject(className: "Schedules")
-                
-                // 配列で保存することで検索コストを減らせる
-                eventObject?.setObject([self.eventTextField.text!], forKey: "events")
-                eventObject?.setObject(self.dateTextField.text!, forKey: "scheduledDate")
-                eventObject?.setObject(UserDefaults.standard.object(forKey: "userId"), forKey: "userId")
-                eventObject?.saveInBackground({ (error) in
-                    if error != nil {
-                        print(error)
-                    }
-                })
+            case let .failure(error):
+                print("取得に失敗しました: \(error)")
             }
-        })
+        }
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
         // ②遷移先ViewControllerのインスタンス取得
@@ -72,7 +82,8 @@ class AddScheduleViewController: UIViewController {
     }
 }
 
-// MARK:- DatePickerの処理
+
+// MARK: - DatePickerの処理
 extension AddScheduleViewController{
     //DatePickerを用いる関数
     func createDatePicker(){
@@ -102,7 +113,8 @@ extension AddScheduleViewController{
     }
 }
 
-// MARK:- date型 ⇄ String型に変換する関数
+
+// MARK: - date型 ⇄ String型に変換する関数
 extension AddScheduleViewController{
     //date型→String型に変換する関数
     func dateToString(date:Date,format:String)->String{

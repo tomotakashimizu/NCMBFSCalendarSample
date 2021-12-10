@@ -1,10 +1,10 @@
 PODS:
   - FSCalendar (2.8.1)
-  - NCMB (3.1.0)
+  - NCMB (1.2.1)
 
 DEPENDENCIES:
   - FSCalendar
-  - NCMB (from `https://github.com/NIFTYCloud-mbaas/ncmb_ios.git`, branch `develop`)
+  - NCMB (from `https://github.com/NIFCLOUD-mbaas/ncmb_swift.git`)
 
 SPEC REPOS:
   trunk:
@@ -12,18 +12,17 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   NCMB:
-    :branch: develop
-    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
 
 CHECKOUT OPTIONS:
   NCMB:
-    :commit: 8abc6e8708f1ab306e1dcaf13da4019257e91fb1
-    :git: https://github.com/NIFTYCloud-mbaas/ncmb_ios.git
+    :commit: a58f9b78d5271b1909c88a700c0bf232bff8afce
+    :git: https://github.com/NIFCLOUD-mbaas/ncmb_swift.git
 
 SPEC CHECKSUMS:
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
-  NCMB: c308972109137bf523ec1830bac16de6a31c25f4
+  NCMB: b3324c9a8909607a77f8844cd979e910de6a5e25
 
-PODFILE CHECKSUM: 21419c046e499cdbc9a5bf92edf589e8f1c2086a
+PODFILE CHECKSUM: c707b6344ec1bd246bbb0b6a3515ffb0e3fc75d7
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

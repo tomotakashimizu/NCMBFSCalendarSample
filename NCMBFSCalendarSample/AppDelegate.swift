@@ -13,24 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let applicationKey = "775bcceb7065d070ed6350ddd7f3135c5a48b409552801becb8b8345898986cc"
-        let clientkey = "cf537c02c5aecd6a8a6b817003448bdf94a8441ff677b2bc6688f7769040611d"
-        NCMB.setApplicationKey(applicationKey, clientKey: clientkey)
+        let applicationKey = "83d0027729cebf4bfdfd8405b229ebcc8ed6d813b02105d436866e0f5529d81f"
+        let clientkey = "68fd21038875b4927921bf316d9105698786c535413e2e5e6a476a4e09abc2dc"
+        NCMB.initialize(applicationKey: applicationKey, clientKey: clientkey)
         
         // userdefaultsを用いて，匿名ログイン時のuserIdを保存.また全てのユーザーに対してデータのアクセス権を与えるACLを設定
         if UserDefaults.standard.object(forKey: "userId") == nil {
             NCMBUser.enableAutomaticUser()
-            NCMBUser.automaticCurrentUser { (user, error) in
-                if error != nil {
-                    print(error)
-                } else {
-                    UserDefaults.standard.set(user?.objectId, forKey: "userId")
-                    let groupACL = NCMBACL()
-                    groupACL.setPublicReadAccess(true)
-                    user!.acl = groupACL
-                    user!.save(nil)
+            // 匿名ユーザーでのログイン
+            NCMBUser.automaticCurrentUserInBackground(callback: { result in
+                switch result {
+                case .success:
+                    // ログインに成功した場合の処理
+                    if let user = NCMBUser.currentUser {
+                        UserDefaults.standard.set(user.objectId, forKey: "userId")
+                    }
+                case let .failure(error):
+                    print("ログインに失敗しました: \(error)")
                 }
-            }
+            })
         }
         
         return true

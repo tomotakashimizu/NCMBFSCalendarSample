@@ -126,30 +126,36 @@ extension ViewController{
     
     func loadData(){
         
+        guard let userId = UserDefaults.standard.object(forKey: "userId") else { return }
+        
         //NCMBから値を取得
-        let query = NCMBQuery(className: "Schedules")
-        query?.whereKey("userId", equalTo: UserDefaults.standard.object(forKey: "userId"))
-        query?.findObjectsInBackground({ (results, error) in
-            if error != nil {
-                print(error)
-            } else {
+        var query = NCMBQuery.getQuery(className: "Schedules")
+        query.where(field: "userId", equalTo: userId)
+        query.findInBackground { result in
+            switch result {
+            case let .success(array):
+                print("取得に成功しました 件数: \(array.count)")
+                
                 //ここでscheduleDates,schedulesを初期化しないと，loadData関数が呼ばれる度に要素が無限に増えてしまう
                 self.scheduledDates = []
                 self.schedules = [:]
-                for result in results as! [NCMBObject] {
-                    let date = result.object(forKey: "scheduledDate") as! String
-                    let events = result.object(forKey: "events") as! [String]
-                    let eventCount = events.count
+                for resultObject in array {
+                    let date: String? = resultObject["scheduledDate"]
+                    let events: [String]? = resultObject["events"]
+                    let eventCount = events!.count
                     //Scheduleモデルに値を格納して実体化する
-                    let completeSchedule = Schedule(date: date, events: events, eventCount: eventCount)
-                    self.scheduledDates.append(date)
-                    self.schedules.updateValue(completeSchedule, forKey: date)
+                    let completeSchedule = Schedule(date: date!, events: events!, eventCount: eventCount)
+                    self.scheduledDates.append(date!)
+                    self.schedules.updateValue(completeSchedule, forKey: date!)
                 }
                 //calendarとTableViewを更新
                 self.calendar.reloadData()
                 self.scheduleTableView.reloadData()
+                
+            case let .failure(error):
+                print("取得に失敗しました: \(error)")
             }
-        })
+        }
     }
 }
 
